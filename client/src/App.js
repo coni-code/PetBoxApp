@@ -1,10 +1,10 @@
 import React from 'react';
-import First from './components/First.js';
+import LoginSingUp from './components/loginSingUp/LoginSingUp';
 
 function App() {
   return (
     <div>
-      <First />
+      <LoginSingUp/>
     </div>
   );
 }
