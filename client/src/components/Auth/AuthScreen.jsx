@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Login } from './Login';
 import { SingUp } from './SingUp';
+import '../../assets/styles/auth.css';
+
 
 export const AuthScreen = () => {
 
@@ -11,7 +13,7 @@ export const AuthScreen = () => {
     }
 
     return ( 
-        <div className='registrationView'>
+        <div className='auth-form-container'>
             {
                 currentForm === "login" ? <Login onFormSwitch={toggleForm} /> : <SingUp onFormSwitch={toggleForm}/>
             }

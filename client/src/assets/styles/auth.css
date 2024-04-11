@@ -1,0 +1,76 @@
+.auth-form-container {
+    display: flex;
+    background: linear-gradient(to bottom, #FFA500, #FF4500);
+    text-align: center;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.registration {
+    border: solid #FDFDFD 1px;
+    box-shadow: 0px 20px 10px #DD2C00;
+    padding: 30px 20px;
+    background-color: #FFF3E0;
+    border-radius: 30px;
+}
+
+.header {
+    color: #4E2F2F;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.switch-button {
+    margin-top: 20px;
+    font-size: 1rem;
+    font-weight: 800;
+    padding: 10px 30px;
+    border-radius: 30px;
+    color: #FBFBFB;
+    background: linear-gradient(to bottom, orange, #FF6D00);
+    border: 2px solid #E65100;
+}
+
+hr {
+    border-top: solid #E65100 2px;
+    width: 70%;
+}
+
+input {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 2px solid #E65100; 
+    margin-bottom: 20px;
+    background-color: #FFF3E0;
+}
+
+::placeholder {
+    color:#4E2F2F;
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+label {
+    margin-bottom: 5px;
+    font-size: 1.5rem;
+    color:#4E2F2F;
+    font-weight: 800;
+}
+
+.log-button {
+    font-size: 1rem;
+    font-weight: 800;
+    padding: 8px 30px;
+    border-radius: 30px;
+    color:#4E2F2F;
+    background-color: #FFF3E0;
+    border: 2px solid #E65100;
+    margin-bottom: 10px;
+}
