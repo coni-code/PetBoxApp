@@ -1,10 +1,10 @@
-import React from 'react';
-import LoginSingUp from './components/loginSingUp/LoginSingUp';
+import React, {useState} from 'react';
+import { AuthScreen } from './components/Auth/AuthScreen';
 
 function App() {
   return (
-    <div>
-      <LoginSingUp/>
+    <div className='App'>
+      <AuthScreen />
     </div>
   );
 }
