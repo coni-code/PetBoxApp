@@ -20,7 +20,9 @@ class UserDataSource extends DataSource {
 const userGenerator = new MockGenerator({
     generateMock() {
         return {
-            name: chance.name(),
+            login: chance.name(),
+            email: chance.email(),
+            password: chance.word(),
         };
     }
 });
