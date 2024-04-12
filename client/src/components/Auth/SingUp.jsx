@@ -55,13 +55,65 @@ export const SingUp = (props) => {
                 <h1 className='header'>Sing-up Page</h1>
                 <form className='singup-form form' onSubmit={handleSubmit}>
                     <label htmlFor="Login">Login</label>
-                    <input value={login} onChange={(e) => setLogin(e.target.value)} type="text" placeholder="Login" id="login" name="login"/>
+                    <input 
+                        value={login} 
+                        onChange={(e) => {
+                            setLogin(e.target.value);
+                            if (e.target.value.trim() !== '') {
+                                setEmptyFields(emptyFields.filter(field => field !== 'login'));
+                            }
+                        }} 
+                        type="text" 
+                        placeholder="Login" 
+                        id="login" 
+                        name="login"
+                        className={emptyFields.includes('login') ? 'empty-field' : ''}
+                    />
                     <label htmlFor='Email'>Email</label>
-                    <input value={email} onChange={(e) => setEmail(e.target.value)} type='email' placeholder='Email' name='email' id='email'/>
+                    <input 
+                        value={email} 
+                        onChange={(e) => {
+                            setEmail(e.target.value);
+                            if (e.target.value.trim() !== '') {
+                                setEmptyFields(emptyFields.filter(field => field !== 'email'));
+                            }
+                        }}  
+                        type='email' 
+                        placeholder='Email' 
+                        name='email' 
+                        id='email'
+                        className={emptyFields.includes('email') ? 'empty-field' : ''}
+                    />
                     <label htmlFor="Password">Password</label>
-                    <input value={password1} onChange={(e) => setPassword1(e.target.value)} type="password" placeholder="Password" id="password" name="password"/>
+                    <input 
+                        value={password1} 
+                        onChange={(e) => {
+                            setPassword1(e.target.value);
+                            if (e.target.value.trim() !== '') {
+                                setEmptyFields(emptyFields.filter(field => field !== 'password1'));
+                            }
+                        }} 
+                        type="password" 
+                        placeholder="Password" 
+                        id="password" 
+                        name="password"
+                        className={emptyFields.includes('password1') ? 'empty-field' : ''}
+                    />
                     <label htmlFor="RepeatPassword">Repeat Password</label>
-                    <input value={password2} onChange={(e) => setPassword2(e.target.value)} type="password" placeholder="Password" id="password" name="password"/>
+                    <input 
+                        value={password2} 
+                        onChange={(e) => {
+                            setPassword2(e.target.value);
+                            if (e.target.value.trim() !== '') {
+                                setEmptyFields(emptyFields.filter(field => field !== 'password2'));
+                            }
+                        }}  
+                        type="password" 
+                        placeholder="Password" 
+                        id="password" 
+                        name="password"
+                        className={emptyFields.includes('password2') ? 'empty-field' : ''}
+                    />
                     <button class="log-button" type="submit">Sing Up</button>
                 </form>
                 <hr/>

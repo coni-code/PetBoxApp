@@ -44,9 +44,10 @@ hr {
 }
 
 input {
+    border: transparent;
     padding: 10px 20px;
     border-radius: 20px;
-    border: 2px solid #E65100; 
+    outline: 2px solid #E65100; 
     margin-bottom: 20px;
     background-color: #FFF3E0;
 }
@@ -76,5 +77,18 @@ label {
 }
 
 .switch-button:hover, .log-button:hover {
+    transition: 125ms ease-out;
     cursor: pointer;
+    border: 2px solid #DD2C00;
+    box-shadow: 0px 0px 10px #DD2C00;
+}
+
+input:focus {
+    background-color: #FFF3EA;
+    outline: solid 2px #DD2C00;
+}
+
+.empty-field {
+    background-color: #ff6f0044;
+    outline: solid 2px #DD2C00;
 }
