@@ -31,7 +31,7 @@
     margin-top: 20px;
     font-size: 1rem;
     font-weight: 800;
-    padding: 10px 30px;
+    padding: 8px 30px;
     border-radius: 30px;
     color: #FBFBFB;
     background: linear-gradient(to bottom, orange, #FF6D00);
@@ -73,4 +73,8 @@ label {
     background-color: #FFF3E0;
     border: 2px solid #E65100;
     margin-bottom: 10px;
+}
+
+.switch-button:hover, .log-button:hover {
+    cursor: pointer;
 }

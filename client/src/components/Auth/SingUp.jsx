@@ -6,10 +6,47 @@ export const SingUp = (props) => {
     const [email, setEmail] = useState('');
     const [password1, setPassword1] = useState('');
     const [password2, setPassword2] = useState('');
+    const [emptyFields, setEmptyFields] = useState([]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(login);
+
+        const emptyFieldsArray = [];
+        if (login.trim() === '') {
+            emptyFieldsArray.push('login');
+        }
+        if (email.trim() === '') {
+            emptyFieldsArray.push('email');
+        }
+        if (password1.trim() === '') {
+            emptyFieldsArray.push('password1');
+        }
+        if (password2.trim() === '') {
+            emptyFieldsArray.push('password2');
+        }
+        setEmptyFields(emptyFieldsArray);
+
+        if (emptyFieldsArray.length > 0) {
+            alert("Nie wszystkie pola są uzupełnione.");
+            return;
+        }
+
+        const loginRegex = /^[a-zA-Z0-9]+$/;
+        if (!loginRegex.test(login)) {
+            alert("Login może zawierać tylko litery i cyfry");
+            return;
+        }
+
+        const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/;
+         if (!passwordRegex.test(password1)) {
+             alert("Hasło musi zaczynać się dużą literą i mieć jeden znak specjalny");
+            return;
+        }
+
+        if (password1 !== password2) {
+            alert("Hasła się różnią");
+            return;
+        }
     }
 
     return ( 
