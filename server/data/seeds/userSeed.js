@@ -22,7 +22,7 @@ const userGenerator = new MockGenerator({
         return {
             login: chance.name(),
             email: chance.email(),
-            password: chance.word(),
+            password: chance.word({'length': 8}),
         };
     }
 });
