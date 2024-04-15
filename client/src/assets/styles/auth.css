@@ -48,7 +48,7 @@ input {
     padding: 10px 20px;
     border-radius: 20px;
     outline: 2px solid #E65100; 
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     background-color: #FFF3E0;
 }
 
@@ -59,7 +59,8 @@ input {
 }
 
 label {
-    margin-bottom: 5px;
+    margin-bottom: 6px;
+    margin-top: 10px;
     font-size: 1.5rem;
     color:#4E2F2F;
     font-weight: 800;
@@ -74,6 +75,7 @@ label {
     background-color: #FFF3E0;
     border: 2px solid #E65100;
     margin-bottom: 10px;
+    margin-top: 20px;
 }
 
 .switch-button:hover, .log-button:hover {
@@ -84,11 +86,16 @@ label {
 }
 
 input:focus {
-    background-color: #FFF3EA;
+    background-color: #FFF3EF;
     outline: solid 2px #DD2C00;
 }
 
-.empty-field {
-    background-color: #ff6f0044;
-    outline: solid 2px #DD2C00;
+.error1, .error2, .error3, .error4 {
+    color: red;
+    font-size: 12px;
+    display: none
+}
+
+input:invalid[focused="true"] + span {
+    display: block;
 }
