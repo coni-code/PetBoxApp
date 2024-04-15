@@ -45,3 +45,11 @@ module.exports.logout = (req,res,next) =>{
     res.cookie('jwt', '', {maxAge: 1});
     res.status(200).send('success');
 };
+
+module.exports.status = (req,res,next) =>{
+    if(res.locals.user){
+        res.json({logged: true});
+    }else{
+        res.json({logged: false});
+    }
+}

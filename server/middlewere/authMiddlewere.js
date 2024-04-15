@@ -20,13 +20,13 @@ const requireAuth = (req, res, next) => {
 const checkUser =  (req, res, next) => {
     const token = req.cookies.jwt;
     if (token){
-        jwt.veryfy(token, 'test secret', async (err, decodedToken) =>{
+        jwt.verify(token, 'test secret', async (err, decodedToken) =>{
             if(err){
                 res.locals.user = null;
                 next();
             }
             else{
-                let user = await User.findById(decodedToken);
+                let user = await User.findById(decodedToken.id);
                 res.locals.user = user;
                 next();
             }
