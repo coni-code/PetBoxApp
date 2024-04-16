@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { AuthScreen } from './components/Auth/AuthScreen';
 import './assets/styles/app.css';
 
