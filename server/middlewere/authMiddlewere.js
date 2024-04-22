@@ -3,7 +3,7 @@ const User = require('../models/User');
 const requireAuth = (req, res, next) => {
     const token = req.cookies.jwt;
     if(token){
-        jwt.verify(token, 'test secret',(err, decodedToken) =>{
+        jwt.verify(token, 'test secret',(err, decodedToken) => {
             if(err){
                 res.status(403).send('Acces denied');
             }
