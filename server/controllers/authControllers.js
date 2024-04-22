@@ -11,13 +11,12 @@ const createToken = (id) => {
     );
 }
 
-module.exports.signup = async (req,res,next) =>{
+module.exports.signup = async (req,res,next) => {
     const {login, email, password} = req.body;
     try{
         const user = await User.create({login, email, password});
         const token = createToken(user._id);
-        console.log(user);
-        res.cookie('jwt', token,{httpOnly: true, maxAge: maxAge * 1000});
+        res.cookie('jwt', token, {httpOnly: true, maxAge: maxAge * 1000});
         res.status(201).json({user: user._id});
     }
     catch(err){
@@ -41,12 +40,12 @@ module.exports.login = async (req,res,next) =>{
 
 };
 
-module.exports.logout = (req,res,next) =>{
+module.exports.logout = (req,res,next) => {
     res.cookie('jwt', '', {maxAge: 1});
     res.status(200).send('success');
 };
 
-module.exports.status = (req,res,next) =>{
+module.exports.status = (req,res,next) => {
     if(res.locals.user){
         res.json({logged: true});
     }else{
