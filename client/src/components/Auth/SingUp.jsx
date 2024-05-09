@@ -13,6 +13,18 @@ export const SingUp = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        let url = 'http://localhost:5000/api/auth/signup';
+
+        let options = {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: `{"login":"${login}","password":"${password1}","email":"${email}"}`
+        };
+
+        fetch(url, options)
+        .then(res => res.json())
+        .then(json => alert(JSON.stringify(json)))
+        .catch(err => console.error('error:' + err));
     }
 
     const handleLoginFocus = () => {

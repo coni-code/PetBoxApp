@@ -9,6 +9,18 @@ export const Login = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        let url = 'http://localhost:5000/api/auth/login';
+
+        let options = {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: `{"login":"${login}","password":"${password}"}`
+        };
+
+        fetch(url, options)
+        .then(res => res.json())
+        .then(json => console.log(json))
+        .catch(err => console.error('error:' + err));
     }
 
     return ( 
