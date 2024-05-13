@@ -1,8 +1,10 @@
-FROM node:20-alpine
+FROM node:20
 
 WORKDIR /usr/src/app
 
 COPY package*.json ./
+
+RUN rm -rf node_modules
 
 RUN npm install
 

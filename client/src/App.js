@@ -1,10 +1,11 @@
 import React from 'react';
-import First from './components/First.js';
+import { AuthScreen } from './components/Auth/AuthScreen';
+import './assets/styles/app.css';
 
 function App() {
   return (
-    <div>
-      <First />
+    <div className='App'>
+      <AuthScreen />
     </div>
   );
 }
