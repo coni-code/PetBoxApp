@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
+import AnimalForm from '../AnimalConfig/AnimalForm';
 
 export const Login = (props) => {
 
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
+    const [loggedIn, setLoggedIn] = useState(false);
 
     console.log(login);
 
@@ -22,6 +24,7 @@ export const Login = (props) => {
             if (res.ok) {
                 document.querySelector('.errorAuthLogin').classList.remove('show');
                 document.querySelector('.errorAuthLogin2').classList.remove('show');
+                setLoggedIn(true);
                 return res.json();
             } else {
                 document.querySelector('.errorAuthLogin').classList.add('show');
@@ -29,6 +32,10 @@ export const Login = (props) => {
             }
         })
         .catch(err => console.error('error:' + err));
+    }
+
+    if(loggedIn){
+        return <AnimalForm/>
     }
 
     return ( 
