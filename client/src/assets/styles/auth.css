@@ -14,6 +14,10 @@
     padding: 30px 20px;
     background-color: #FFF3E0;
     border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .header {
@@ -99,7 +103,7 @@ input:invalid[focused="true"] + span {
     display: block;
 }
 
-.errorAuthRegister, .errorAuthRegister2 {
+.errorAuthRegister, .errorAuthRegister2, .errorAuthLogin, .errorAuthLogin2 {
     color: red;
     font-size: 12px;
     display: none;
@@ -107,4 +111,17 @@ input:invalid[focused="true"] + span {
 
 .show {
     display: block;
+}
+
+.forgotPassword {
+    margin-top: 10px;
+    font-size: 12px;
+    opacity: 0.85;
+    transition: 200ms;
+    color:#4E2F2F;
+}
+
+.forgotPassword:hover {
+    cursor: pointer;
+    opacity: 1;
 }

@@ -18,8 +18,16 @@ export const Login = (props) => {
         };
 
         fetch(url, options)
-        .then(res => res.json())
-        .then(json => console.log(json))
+        .then(res => {
+            if (res.ok) {
+                document.querySelector('.errorAuthLogin').classList.remove('show');
+                document.querySelector('.errorAuthLogin2').classList.remove('show');
+                return res.json();
+            } else {
+                document.querySelector('.errorAuthLogin').classList.add('show');
+                document.querySelector('.errorAuthLogin2').classList.add('show');
+            }
+        })
         .catch(err => console.error('error:' + err));
     }
 
@@ -68,6 +76,7 @@ export const Login = (props) => {
                         id="login" 
                         name="login" 
                     />
+                    <span className="errorAuthLogin">Niepoprawny Login, lub hasło</span>
                     <label htmlFor="Password">Password</label>
                     <input 
                         value={password} 
@@ -79,10 +88,12 @@ export const Login = (props) => {
                         id="password" 
                         name="password"
                     />
+                    <span className="errorAuthLogin2">Niepoprawny Login, lub hasło</span>
                     <button className="log-button" type="submit">Log In</button>
                 </form>
                 <hr/>
                 <button className='switch-button' onClick={() => props.onFormSwitch('register')}>Don't have an account? Register here.</button>
+                <span className='forgotPassword'>Zapomniałeś hasła? Kliknij!</span>
             </div>
         </>
     );
