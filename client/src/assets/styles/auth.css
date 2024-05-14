@@ -92,9 +92,19 @@ input:focus {
 .error1, .error2, .error3, .error4 {
     color: red;
     font-size: 12px;
-    display: none
+    display: none;
 }
 
 input:invalid[focused="true"] + span {
+    display: block;
+}
+
+.errorAuthRegister, .errorAuthRegister2 {
+    color: red;
+    font-size: 12px;
+    display: none;
+}
+
+.show {
     display: block;
 }

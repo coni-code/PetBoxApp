@@ -13,6 +13,7 @@ export const SingUp = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
         let url = 'http://localhost:5000/api/auth/signup';
 
         let options = {
@@ -22,8 +23,17 @@ export const SingUp = (props) => {
         };
 
         fetch(url, options)
-        .then(res => res.json())
-        .then(json => alert(JSON.stringify(json)))
+        .then(res => {
+            if (res.ok) {
+                document.querySelector('.errorAuthRegister').classList.remove('show');
+                document.querySelector('.errorAuthRegister2').classList.remove('show');
+                props.onFormSwitch('login');
+                return res.json();
+            } else {
+                document.querySelector('.errorAuthRegister').classList.add('show');
+                document.querySelector('.errorAuthRegister2').classList.add('show');
+            }
+        })
         .catch(err => console.error('error:' + err));
     }
 
@@ -93,6 +103,7 @@ export const SingUp = (props) => {
                         required
                     />
                     <span className="error1">Login powinien mieć od 3 do 16 znaków i zawierać tylko litery i cyfry</span>
+                    <span className="errorAuthRegister">Dany Login, lub E-mail istnieje użyj innego</span>
                     <label htmlFor='Email'>Email</label>
                     <input 
                         value={email} 
@@ -108,6 +119,7 @@ export const SingUp = (props) => {
                         required
                     />
                     <span className="error2">E-mail powinien zawierać małpę</span>
+                    <span className="errorAuthRegister2">Dany Login, lub E-mail istnieje użyj innego</span>
                     <label htmlFor="Password">Password</label>
                     <input 
                         value={password1} 
