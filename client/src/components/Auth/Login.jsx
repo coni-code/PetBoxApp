@@ -82,6 +82,8 @@ export const Login = (props) => {
                         placeholder="Login" 
                         id="login" 
                         name="login" 
+                        className="authInput"
+                        required
                     />
                     <span className="errorAuthLogin">Niepoprawny Login, lub hasło</span>
                     <label htmlFor="Password">Password</label>
@@ -94,6 +96,8 @@ export const Login = (props) => {
                         placeholder="Password" 
                         id="password" 
                         name="password"
+                        className="authInput"
+                        required
                     />
                     <span className="errorAuthLogin2">Niepoprawny Login, lub hasło</span>
                     <button className="log-button" type="submit">Log In</button>
