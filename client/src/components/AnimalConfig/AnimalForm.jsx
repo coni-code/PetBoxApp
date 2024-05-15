@@ -1,5 +1,6 @@
 import React from 'react'
 import {useState} from 'react';
+import {useEffect} from 'react';
 import '../../assets/styles/animalForm.css';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 
@@ -9,6 +10,14 @@ const AnimalForm = () => {
   const [animalWeight, setAnimalWeight] = useState('1');
   const [animalAge, setAnimalAge] = useState('1');
   const [selectValue, setSelectValue] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(true);
+
+  useEffect(() => {
+    if (isModalOpen) {
+      const modalBg = document.querySelector(".animal-form-container");
+      modalBg.classList.add("blur");
+    }
+  }, [isModalOpen]);
 
   const options = [
     {label: "Pies", value: 1},
@@ -19,8 +28,22 @@ const AnimalForm = () => {
     setSelectValue(e.target.value);
   }
 
+  function closeModal() {
+    setIsModalOpen(false); 
+    const modalBg = document.querySelector(".animal-form-container");
+      modalBg.classList.remove("blur");
+  }
+
   return (
     <>
+    {isModalOpen && (
+        <div className="modal">
+          <div className="modal-content">
+            <p className='modalParagraph'>Tutaj dodajemy zwierzątko!</p>
+            <button className='closeModalButton' onClick={closeModal}>Dodaj</button>
+          </div>
+        </div>
+      )}
       <div className='animal-form-container'>
         <div className='animal-form'>
             <form className='animal-form-structure'>
