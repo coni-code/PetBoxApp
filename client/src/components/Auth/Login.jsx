@@ -3,11 +3,9 @@ import { useNavigate } from 'react-router-dom';
 
 export const Login = (props) => {
     const navigate = useNavigate();
+    const [loggedIn, setLoggedIn] = useState(false);
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
-    const [loggedIn, setLoggedIn] = useState(false);
-
-    console.log(login);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -25,12 +23,17 @@ export const Login = (props) => {
                 document.querySelector('.errorAuthLogin').classList.remove('show');
                 document.querySelector('.errorAuthLogin2').classList.remove('show');
                 setLoggedIn(true);
-                navigate('/animal-form');
                 return res.json();
             } else {
                 document.querySelector('.errorAuthLogin').classList.add('show');
                 document.querySelector('.errorAuthLogin2').classList.add('show');
             }
+        })
+        .then(() => {
+            if(loggedIn)
+                navigate('/animal-form'); 
+            else 
+                navigate('/');
         })
         .catch(err => console.error('error:' + err));
     }
