@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import AnimalForm from '../AnimalConfig/AnimalForm';
+import { useNavigate } from 'react-router-dom';
 
 export const Login = (props) => {
-
+    const navigate = useNavigate();
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
     const [loggedIn, setLoggedIn] = useState(false);
@@ -25,6 +25,7 @@ export const Login = (props) => {
                 document.querySelector('.errorAuthLogin').classList.remove('show');
                 document.querySelector('.errorAuthLogin2').classList.remove('show');
                 setLoggedIn(true);
+                navigate('/animal-form');
                 return res.json();
             } else {
                 document.querySelector('.errorAuthLogin').classList.add('show');
@@ -32,10 +33,6 @@ export const Login = (props) => {
             }
         })
         .catch(err => console.error('error:' + err));
-    }
-
-    if(loggedIn){
-        return <AnimalForm/>
     }
 
     return ( 
