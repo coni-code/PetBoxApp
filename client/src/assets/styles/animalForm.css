@@ -145,7 +145,7 @@
 
   .animalImageBlock{
     transition: 200ms;
-    height: 100px;
+    height: 120px;
     background-color: #FBFBFB;
     border-radius: 15px;
     padding: 0 20px 0 20px;
@@ -204,7 +204,7 @@
     margin: 20px 20px 0 20px;
   }
 
-  .closeModalButton:hover {
+  .closeModalButton:hover, .add-button:hover {
     transition: 125ms ease-out;
     cursor: pointer;
     border: 2px solid #DD2C00;
@@ -214,3 +214,29 @@
   .blur {
     filter: blur(15px);
   }
+
+  .add-button{
+    font-size: 1rem;
+    font-weight: 800;
+    padding: 8px 30px;
+    border-radius: 30px;
+    color:#4E2F2F;
+    background-color: #FFF3E0;
+    border: 2px solid #E65100;
+    margin-top: 20px;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .profilePhotoInput {
+    display: none;
+  }
+
+  .profilePhoto {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 15px #000000be;
+    object-fit: cover;
+    object-position: center;
+  }
+  

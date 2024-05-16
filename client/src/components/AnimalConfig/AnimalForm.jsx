@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState} from 'react';
 import {useEffect} from 'react';
+import { useRef } from 'react';
 import '../../assets/styles/animalForm.css';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 
@@ -11,6 +12,8 @@ const AnimalForm = () => {
   const [animalAge, setAnimalAge] = useState('1');
   const [selectValue, setSelectValue] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(true);
+  const [animalImage, setAnimalImage] = useState('');
+  const inputPhotoRef = useRef(null);
 
   useEffect(() => {
     if (isModalOpen) {
@@ -34,40 +37,59 @@ const AnimalForm = () => {
       modalBg.classList.remove("blur");
   }
 
+  const handleImageClick = () => {
+    inputPhotoRef.current.click();
+  }
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setAnimalImage(file);
+  }
+
   return (
     <>
     {isModalOpen && (
         <div className="modal">
           <div className="modal-content">
-            <p className='modalParagraph'>Tutaj dodajemy zwierzątko!</p>
-            <button className='closeModalButton' onClick={closeModal}>Dodaj</button>
+            <p className='modalParagraph'>You can add your pet, here!</p>
+            <button className='closeModalButton' onClick={closeModal}>Let's go</button>
           </div>
         </div>
       )}
       <div className='animal-form-container'>
         <div className='animal-form'>
             <form className='animal-form-structure'>
-              <label htmlFor="Zdjęcie">Zdjęcie</label>
-              <div className='animalImageBlock'>
-                <AiOutlinePlusCircle size={80} />
+              <label htmlFor="Profile Photo">Profile Photo</label>
+              <div className='animalImageBlock' onClick={handleImageClick}>
+                {animalImage ? (
+                  <img src={URL.createObjectURL(animalImage)} alt="profile" className='profilePhoto'/>
+                ) : (
+                  <AiOutlinePlusCircle size={80} color='#FF6D00'/>
+                )} 
+                <input 
+                      type="file" 
+                      ref={inputPhotoRef}
+                      onChange={handleImageChange} 
+                      className="profilePhotoInput" 
+                      id="profilePhoto" />
               </div>
-              <label htmlFor="Imię">Imię</label>
+              <label htmlFor="Name">Name</label>
               <input 
                         value={animalName} 
                         onChange={(e) => {
                             setAnimalName(e.target.value);                     
                         }} 
                         type="text" 
-                        placeholder="Imię pupila" 
+                        placeholder="Your pet name" 
                         id="petName" 
                         name="petName"
                         className="animalNameInput"
                         required 
                     />
-              <label htmlFor="Wiek">Wiek</label>
+              <label htmlFor="Age">Age</label>
               <div className='range'>
               <div className='sliderValue'>
-                {animalAge == 1 ? <span>{animalAge} rok</span> : <span>{animalAge} lat'a</span>}
+                {animalAge === 1 ? <span>{animalAge} rok</span> : <span>{animalAge} lat'a</span>}
               </div>
               <div className='field'>
                 <div className='value left'>1</div>
@@ -87,7 +109,7 @@ const AnimalForm = () => {
               <div className='value right'>30</div>
               </div>
               </div>
-              <label htmlFor="Waga">Waga</label>
+              <label htmlFor="Weight">Weight</label>
               <div className='range'>
               <div className='sliderValue'>
                 <span>{animalWeight} kg</span>
@@ -110,7 +132,7 @@ const AnimalForm = () => {
               <div className='value right'>100</div>
               </div>
               </div>
-              <label htmlFor="Rasa">Rasa</label>
+              <label htmlFor="Gender">Gender</label>
               <div className='dropdownRange'>
                 <select className="animalForm-select" onChange={handleSelect}>
                   {options.map(option => (
@@ -118,6 +140,7 @@ const AnimalForm = () => {
                   ))}
                 </select>
               </div>
+              <button className="add-button" type="submit">Add</button>
             </form>
         </div>
       </div>
