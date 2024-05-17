@@ -49,7 +49,20 @@ const AnimalForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    
+    const formData = new FormData();
+    formData.append('photo', animalImage);
+    formData.append('name', animalName);
+    formData.append('birthDate', animalAge);
+    formData.append('weight', animalWeight);
+    formData.append('gender', selectValue);
+
+    fetch('http://localhost:5000/api/animals/add', {
+      method: 'POST',
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((response) => console.log(response))
+      .catch((err) => console.error(err));
   }
 
   return (
