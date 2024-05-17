@@ -23,8 +23,8 @@ const AnimalForm = () => {
   }, [isModalOpen]);
 
   const options = [
-    {label: "Pies", value: 1},
-    {label: "Kot", value: 2},
+    {label: "Dog", value: 1},
+    {label: "Cat", value: 2},
   ]
 
   function handleSelect(e){
@@ -134,7 +134,8 @@ const AnimalForm = () => {
               </div>
               <label htmlFor="Gender">Gender</label>
               <div className='dropdownRange'>
-                <select className="animalForm-select" onChange={handleSelect}>
+                <select className="animalForm-select" value={selectValue} onChange={handleSelect}>
+                  <option value="" disabled hidden>Select</option>
                   {options.map(option => (
                     <option key={option.value} value={option.value}>{option.label}</option>
                   ))}
