@@ -9,7 +9,7 @@ const AnimalForm = () => {
 
   const [animalName, setAnimalName] = useState('');
   const [animalWeight, setAnimalWeight] = useState('1');
-  const [animalAge, setAnimalAge] = useState('1');
+  const [animalAge, setAnimalAge] = useState('');
   const [selectValue, setSelectValue] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(true);
   const [animalImage, setAnimalImage] = useState('');
@@ -46,6 +46,12 @@ const AnimalForm = () => {
     setAnimalImage(file);
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    
+  }
+
   return (
     <>
     {isModalOpen && (
@@ -58,7 +64,7 @@ const AnimalForm = () => {
       )}
       <div className='animal-form-container'>
         <div className='animal-form'>
-            <form className='animal-form-structure'>
+            <form className='animal-form-structure' onSubmit={handleSubmit}>
               <label htmlFor="Profile Photo">Profile Photo</label>
               <div className='animalImageBlock' onClick={handleImageClick}>
                 {animalImage ? (
@@ -87,27 +93,18 @@ const AnimalForm = () => {
                         required 
                     />
               <label htmlFor="Age">Age</label>
-              <div className='range'>
-              <div className='sliderValue'>
-                {animalAge === 1 ? <span>{animalAge} rok</span> : <span>{animalAge} lat'a</span>}
-              </div>
-              <div className='field'>
-                <div className='value left'>1</div>
+              <div className='age-range'>
                 <input 
-                          value={animalAge} 
-                          onChange={(e) => {
-                              setAnimalAge(e.target.value);                     
-                          }} 
-                          type="range" 
-                          id="petRange" 
-                          name="petAge"
-                          className="animalRangeInput"
-                          min='1'
-                          max='30'
-                          required 
-                      />
-              <div className='value right'>30</div>
-              </div>
+                      type='date' 
+                      className='date-input'
+                      value={animalAge}
+                      onChange={(e) => {
+                        setAnimalAge(e.target.value);                     
+                      }} 
+                      id="petAge" 
+                      name="petAge"
+                      required
+                  />
               </div>
               <label htmlFor="Weight">Weight</label>
               <div className='range'>

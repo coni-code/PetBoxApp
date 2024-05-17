@@ -56,6 +56,40 @@
     box-shadow: 2px 4px 8px rgba(0,0,0,0.1);
 }
 
+.age-range {
+  height: 80px;
+  width: 380px;
+  background-color: #FBFBFB;
+  border-radius: 15px;
+  padding: 0 65px 0 45px;
+  box-shadow: 2px 4px 8px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.date-input {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  font-size: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  background: #FBFBFB;
+  width: 100vh;
+  border: none;
+  outline: 2px solid #E65100; 
+}
+
+.date-input:focus {
+  outline: solid 2px #DD2C00;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+
+.date-input:hover {
+  cursor: pointer;
+}
+
 .sliderValue {
     position: relative;
     width: 100%;
