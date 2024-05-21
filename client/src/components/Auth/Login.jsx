@@ -13,7 +13,8 @@ export const Login = (props) => {
         let options = {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: `{"login":"${login}","password":"${password}"}`
+        body: `{"login":"${login}","password":"${password}"}`,
+        credentials: 'include'
         };
 
         fetch(url, options)
