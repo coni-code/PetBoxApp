@@ -46,8 +46,18 @@ const AnimalForm = () => {
     setAnimalImage(file);
   }
 
+  const getCurrentDate = () => {
+    const today = new Date();
+    return today.toISOString().split('T')[0]; 
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!animalImage) {
+      alert('Please select an image.');
+      return;
+    }
 
     const formData = new FormData();
     formData.append('photo', animalImage);
@@ -59,6 +69,7 @@ const AnimalForm = () => {
     fetch('http://localhost:5000/api/animals/add', {
       method: 'POST',
       body: formData,
+      credentials: 'include'
     })
       .then((response) => response.json())
       .then((response) => console.log(response))
@@ -116,6 +127,7 @@ const AnimalForm = () => {
                       }} 
                       id="petAge" 
                       name="petAge"
+                      max={getCurrentDate()}
                       required
                   />
               </div>
