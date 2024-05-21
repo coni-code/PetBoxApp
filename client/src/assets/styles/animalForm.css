@@ -274,3 +274,7 @@
     object-position: center;
   }
   
+.error {
+  border: 2px solid red;
+  transition: 300ms ease-in-out;
+}

@@ -55,7 +55,16 @@ const AnimalForm = () => {
     e.preventDefault();
 
     if (!animalImage) {
+      const photoFrame = document.querySelector('.animalImageBlock');
+      photoFrame.classList.add('error');
       alert('Please select an image.');
+      return;
+    }
+
+    if(selectValue == 0){
+      const selectFrame = document.querySelector('.dropdownRange');
+      selectFrame.classList.add('error');
+      alert('Please add animal gender.');
       return;
     }
 
