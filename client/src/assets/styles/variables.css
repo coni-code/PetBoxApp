@@ -1,0 +1,27 @@
+:root {
+    /* button colors */
+    --primary-button-color: #FFF3E0;
+    --orange-button-color1: orange;
+    --orange-button-color2: #FF6D00;
+    --primary-gradient-button: linear-gradient(to bottom, orange, #FF6D00);
+
+    /* background colors */
+    --primary-background-gradient: linear-gradient(to bottom, #FFA500, #FF4500);
+    --primary-background-color1: #FFF3E0;
+    --primary-background-color2: #FBFBFB;
+    --orange-background-color: #E65100;
+
+    /*shadows */
+    --primary-red-shadow: #DD2C00;
+
+    /*font colors */
+    --brown-font-color: #4E2F2F;
+    --white-font-color: #FBFBFB;
+    --error-font-color: red;
+
+    /*borders */
+    --default-border: #E65100;
+    --focus-border: #DD2C00;
+    --hover-border: #DD2C00;
+    --white-border: #FDFDFD;
+}
