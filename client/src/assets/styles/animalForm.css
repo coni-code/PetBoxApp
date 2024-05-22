@@ -1,6 +1,6 @@
 .animal-form-container {
     display: flex;
-    background: linear-gradient(to bottom, #FFA500, #FF4500);
+    background: var(--primary-background-gradient);
     text-align: center;
     min-height: 100vh;
     align-items: center;
@@ -9,10 +9,10 @@
 }
 
 .animal-form {
-    border: solid #FDFDFD 1px;
-    box-shadow: 0px 20px 10px #DD2C00;
+    border: solid var(--white-border) 1px;
+    box-shadow: 0px 20px 10px var(--primary-red-shadow);
     padding: 30px 20px;
-    background-color: #FFF3E0;
+    background-color: var(--primary-background-color1);
     border-radius: 30px;
     display: flex;
     flex-direction: column;
@@ -31,19 +31,19 @@
     border: transparent;
     padding: 10px 20px;
     border-radius: 20px;
-    outline: 2px solid #E65100; 
+    outline: 2px solid var(--default-border); 
     margin-bottom: 5px;
-    background-color: #FFF3E0;
+    background-color: var(--primary-background-color1);
 }
 
 .animalNameInput::placeholder {
-    color:#4E2F2F;
+    color: var(--brown-font-color);
     font-size: 1rem;
     font-weight: 800;
 }
 
 .animalNameInput:focus {
-    outline: solid 2px #DD2C00;
+    outline: solid 2px var(--focus-border);
     box-shadow: 2px 4px 8px rgba(0,0,0,0.1);
 }
 
@@ -70,20 +70,18 @@
 
 .date-input {
   padding: 10px 15px;
-  border: 1px solid #ccc;
   border-radius: 15px;
   font-size: 16px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  background: #FBFBFB;
+  background: var(--primary-background-color2);
   width: 100vh;
   border: none;
-  outline: 2px solid #E65100; 
+  outline: 2px solid var(--default-border); 
 }
 
 .date-input:focus {
-  outline: solid 2px #DD2C00;
-  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+  outline: solid 2px var(--focus-border);
 }
 
 .date-input:hover {
@@ -94,7 +92,7 @@
     position: relative;
     width: 100%;
     margin-top: 5px;
-    color: #4E2F2F;
+    color: var(--brown-font-color);
     font-weight: 700;
 }
 
@@ -109,7 +107,7 @@
   .field .value{
     position: absolute;
     font-size: 18px;
-    color: #4E2F2F;
+    color: var(--brown-font-color);
     font-weight: 700;
   }
 
@@ -125,7 +123,7 @@
     -webkit-appearance: none;
     width: 100%;
     height: 3px;
-    background: linear-gradient(to bottom, orange, #FF6D00);
+    background: var(--primary-gradient-button);
     border-radius: 5px;
     outline: none;
     border: none;
@@ -136,10 +134,9 @@
     -webkit-appearance: none;
     width: 20px;
     height: 20px;
-    background: red;
     border-radius: 50%;
-    background: #E65100;
-    border: 1px solid #DD2C00;
+    background: var(--default-border);
+    border: 1px solid var(--focus-border);
     cursor: pointer;
     box-shadow: 2px 4px 8px rgba(0,0,0,0.1);
   }
@@ -147,7 +144,7 @@
   .dropdownRange {
     height: 80px;
     width: 380px;
-    background-color: #FBFBFB;
+    background-color: var(--primary-background-color2);
     border-radius: 15px;
     padding: 0 65px 0 45px;
     box-shadow: 2px 4px 8px rgba(0,0,0,0.1);
@@ -161,12 +158,12 @@
     width: 100%;
     height: 50%;
     font-weight: 700;
-    color: #4E2F2F;
-    outline: 2px #E65100 solid;
+    color: var(--brown-font-color);
+    outline: 2px var(--default-border) solid;
     border-radius: 10px;
     font-size: 20px;
     border: none;
-    background-color: #FBFBFB;
+    background-color: var(--primary-background-color2);
   }
 
   .animalForm-select:hover {
@@ -180,7 +177,7 @@
   .animalImageBlock{
     transition: 200ms;
     height: 120px;
-    background-color: #FBFBFB;
+    background-color: var(--primary-background-color2);
     border-radius: 15px;
     padding: 0 20px 0 20px;
     box-shadow: 2px 4px 8px rgba(0,0,0,0.1);
@@ -199,7 +196,7 @@
     height: 100%;
     width: 100%;
     opacity: 0.7;
-    background-color: #FBFBFB;
+    background-color: var(--primary-background-color2);
     z-index: 9999;
     position: fixed;
     display: flex;
@@ -210,10 +207,10 @@
 
   .modal-content {
     opacity: 1;
-    background-color: #FBFBFB;
+    background-color: var(--primary-background-color2);
     height: 200px;
     width: 300px;
-    border: 2px solid #E65100;
+    border: 2px solid var(--default-border);
     padding: 20px;
     border-radius: 20px;
     box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.501);
@@ -232,17 +229,17 @@
     font-weight: 700;
     padding: 8px 30px;
     border-radius: 20px;
-    color: #FBFBFB;
-    background: linear-gradient(to bottom, orange, #FF6D00);
-    border: 2px solid #E65100;
+    color: var(--primary-background-color2);
+    background: var(--primary-gradient-button);
+    border: 2px solid var(--default-border);
     margin: 20px 20px 0 20px;
   }
 
   .closeModalButton:hover, .add-button:hover {
     transition: 125ms ease-out;
     cursor: pointer;
-    border: 2px solid #DD2C00;
-    box-shadow: 0px 0px 10px #DD2C00;
+    border: 2px solid var(--hover-border);
+    box-shadow: 0px 0px 10px var(--primary-red-shadow);
   }
 
   .blur {
@@ -254,9 +251,9 @@
     font-weight: 800;
     padding: 8px 30px;
     border-radius: 30px;
-    color:#4E2F2F;
-    background-color: #FFF3E0;
-    border: 2px solid #E65100;
+    color: var(--brown-font-color);
+    background-color: var(--primary-background-color2);
+    border: 2px solid var(--default-border);
     margin-top: 20px;
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
   }
@@ -275,6 +272,6 @@
   }
   
 .error {
-  border: 2px solid red;
+  border: 2px solid var(--error-font-color);
   transition: 300ms ease-in-out;
 }
