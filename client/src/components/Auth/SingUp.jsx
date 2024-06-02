@@ -101,6 +101,7 @@ export const SingUp = (props) => {
                         focused={loginFocused.toString()}
                         pattern="^[A-Za-z0-9]{3,16}$"
                         required
+                        className="authInput"
                     />
                     <span className="error1">Login powinien mieć od 3 do 16 znaków i zawierać tylko litery i cyfry</span>
                     <span className="errorAuthRegister">Dany Login, lub E-mail istnieje użyj innego</span>
@@ -117,6 +118,7 @@ export const SingUp = (props) => {
                         id='email'
                         focused={emailFocused.toString()}
                         required
+                        className="authInput"
                     />
                     <span className="error2">E-mail powinien zawierać małpę</span>
                     <span className="errorAuthRegister2">Dany Login, lub E-mail istnieje użyj innego</span>
@@ -134,6 +136,7 @@ export const SingUp = (props) => {
                         focused={password1Focused.toString()}
                         pattern="^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$"
                         required
+                        className="authInput"
                     />
                     <span className="error3">Hasło musi mieć 8-20 znaków i zawierać litery, 1 cyfrę, 1 znak specjalny</span>
                     <label htmlFor="RepeatPassword">Repeat Password</label>
@@ -153,6 +156,7 @@ export const SingUp = (props) => {
                         focused={password2Focused.toString()}
                         pattern = {password1}
                         required
+                        className="authInput"
                     />
                     <span className="error4">Hasła róznią się</span>
                     <button className="log-button" type="submit">Sing Up</button>

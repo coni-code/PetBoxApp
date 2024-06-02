@@ -1,13 +1,10 @@
 import React, {useState} from 'react';
-import AnimalForm from '../AnimalConfig/AnimalForm';
+import { useNavigate } from 'react-router-dom';
 
 export const Login = (props) => {
-
+    const navigate = useNavigate();
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
-    const [loggedIn, setLoggedIn] = useState(false);
-
-    console.log(login);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -16,7 +13,8 @@ export const Login = (props) => {
         let options = {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: `{"login":"${login}","password":"${password}"}`
+        body: `{"login":"${login}","password":"${password}"}`,
+        credentials: 'include'
         };
 
         fetch(url, options)
@@ -24,7 +22,7 @@ export const Login = (props) => {
             if (res.ok) {
                 document.querySelector('.errorAuthLogin').classList.remove('show');
                 document.querySelector('.errorAuthLogin2').classList.remove('show');
-                setLoggedIn(true);
+                navigate('/animal-form');
                 return res.json();
             } else {
                 document.querySelector('.errorAuthLogin').classList.add('show');
@@ -32,10 +30,6 @@ export const Login = (props) => {
             }
         })
         .catch(err => console.error('error:' + err));
-    }
-
-    if(loggedIn){
-        return <AnimalForm/>
     }
 
     return ( 
@@ -82,6 +76,8 @@ export const Login = (props) => {
                         placeholder="Login" 
                         id="login" 
                         name="login" 
+                        className="authInput"
+                        required
                     />
                     <span className="errorAuthLogin">Niepoprawny Login, lub hasło</span>
                     <label htmlFor="Password">Password</label>
@@ -94,6 +90,8 @@ export const Login = (props) => {
                         placeholder="Password" 
                         id="password" 
                         name="password"
+                        className="authInput"
+                        required
                     />
                     <span className="errorAuthLogin2">Niepoprawny Login, lub hasło</span>
                     <button className="log-button" type="submit">Log In</button>
