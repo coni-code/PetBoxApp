@@ -1,6 +1,8 @@
+@import './variables.css';
+
 .auth-form-container {
     display: flex;
-    background: linear-gradient(to bottom, #FFA500, #FF4500);
+    background: var(--primary-background-gradient);
     text-align: center;
     min-height: 100vh;
     align-items: center;
@@ -9,10 +11,10 @@
 }
 
 .registration {
-    border: solid #FDFDFD 1px;
-    box-shadow: 0px 20px 10px #DD2C00;
+    border: solid var(--white-border) 1px;
+    box-shadow: 0px 20px 10px var(--primary-red-shadow);
     padding: 30px 20px;
-    background-color: #FFF3E0;
+    background-color: var(--primary-background-color1);
     border-radius: 30px;
     display: flex;
     flex-direction: column;
@@ -21,7 +23,7 @@
 }
 
 .header {
-    color: #4E2F2F;
+    color: var(--brown-font-color);
 }
 
 .form {
@@ -36,13 +38,13 @@
     font-weight: 800;
     padding: 8px 30px;
     border-radius: 30px;
-    color: #FBFBFB;
-    background: linear-gradient(to bottom, orange, #FF6D00);
-    border: 2px solid #E65100;
+    color: var(--white-font-color);
+    background: var(--primary-gradient-button);
+    border: 2px solid var(--default-border);
 }
 
 hr {
-    border-top: solid #E65100 2px;
+    border-top: solid var(--default-border) 2px;
     width: 70%;
 }
 
@@ -50,13 +52,13 @@ hr {
     border: transparent;
     padding: 10px 20px;
     border-radius: 20px;
-    outline: 2px solid #E65100; 
+    outline: 2px solid var(--default-border); 
     margin-bottom: 5px;
-    background-color: #FFF3E0;
+    background-color: var(--primary-background-color1);;
 }
 
 .authInput::placeholder {
-    color:#4E2F2F;
+    color: var(--brown-font-color);
     font-size: 1rem;
     font-weight: 800;
 }
@@ -65,7 +67,7 @@ label {
     margin-bottom: 6px;
     margin-top: 10px;
     font-size: 1.5rem;
-    color:#4E2F2F;
+    color: var(--brown-font-color);
     font-weight: 800;
 }
 
@@ -74,9 +76,9 @@ label {
     font-weight: 800;
     padding: 8px 30px;
     border-radius: 30px;
-    color:#4E2F2F;
-    background-color: #FFF3E0;
-    border: 2px solid #E65100;
+    color: var(--brown-font-color);
+    background-color: var(--primary-background-color1);
+    border: 2px solid var(--default-border);
     margin-bottom: 10px;
     margin-top: 20px;
 }
@@ -84,17 +86,17 @@ label {
 .switch-button:hover, .log-button:hover {
     transition: 125ms ease-out;
     cursor: pointer;
-    border: 2px solid #DD2C00;
-    box-shadow: 0px 0px 10px #DD2C00;
+    border: 2px solid var(--hover-border);
+    box-shadow: 0px 0px 10px var(--primary-red-shadow);
 }
 
 .authInput:focus {
-    outline: solid 2px #DD2C00;
+    outline: solid 2px var(--focus-border);
     box-shadow: 2px 4px 8px rgba(0,0,0,0.1);
 }
 
 .error1, .error2, .error3, .error4 {
-    color: red;
+    color: var(--error-font-color);
     font-size: 12px;
     display: none;
 }
@@ -104,7 +106,7 @@ input:invalid[focused="true"] + span {
 }
 
 .errorAuthRegister, .errorAuthRegister2, .errorAuthLogin, .errorAuthLogin2 {
-    color: red;
+    color: var(--error-font-color);
     font-size: 12px;
     display: none;
 }
@@ -118,7 +120,7 @@ input:invalid[focused="true"] + span {
     font-size: 12px;
     opacity: 0.85;
     transition: 200ms;
-    color:#4E2F2F;
+    color: var(--brown-font-color);
 }
 
 .forgotPassword:hover {
