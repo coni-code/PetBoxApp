@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AnimalConfigPage from './pages/AnimalConfigPage';
 import LoginPage from './pages/LoginPage';
 import './assets/styles/app.css';
+import AnimalView from './components/AnimalView/AnimalView';
 
 function App() {
   return (

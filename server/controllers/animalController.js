@@ -33,17 +33,6 @@ module.exports.addAnimal = async (req,res,next) => {
     }
 }
 
-module.exports.uploadImage = async(req,res,next) => {
-    try{
-        await Animal.uploadImage(id, );
-    }
-    catch(err)
-    {
-        console.error(err);
-        res.status(500).send("Image not uploaded");
-    }
-}
-
 module.exports.showimage = async (req,res,next) => {
     const user = res.locals.user;
     const animal = req.img;
@@ -54,5 +43,18 @@ module.exports.showimage = async (req,res,next) => {
     catch(err){
         console.error(err);
         res.status(404).send('Image not found');
+    }
+}
+
+module.exports.showAnimalData = async (req,res,next) => {
+    const user = res.locals.user
+    const animalId = req.id
+    try{
+        const animal = await Animal.findOne({id: animalId, owner: user.id});
+        res.json(animal);
+    }
+    catch(err){
+        console.log(err)
+        res.status(404).send("Animal not found");
     }
 }
