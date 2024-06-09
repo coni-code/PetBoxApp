@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import '../../assets/styles/animal.css'
+// Animal: object z id, oraz danymi CloseFunc: funkcja do zamykania
 const AnimalView = ({animal, closeFunc}) =>{
     const [editorState, setEditorState] = useState(false);
     const [events, setEvents] = useState([]);
     const [editorValue, setEditorValue] = useState(['',''])
-
     const getEvents = () =>{
         let url = `http://localhost:5000/api/event/show/${animal._id}`;
         let options = {
@@ -76,9 +76,18 @@ const AnimalView = ({animal, closeFunc}) =>{
         };
         fetch(url, options)
         .then(res => res.json())
-        .then(json => getEvents())
-        .catch(err => console.error('error:' + err));
-        changeState()
+        .then(json => {
+            getEvents()
+            changeState()
+        })
+        .catch(err => {
+            if(editorValue[0] == ""){
+                alert("You need to specify the event")
+            }
+            if(editorValue[1]==""){
+                alert("You need to specyfi date of event")
+            }
+        });
     }
 
     useEffect(()=>{
@@ -108,11 +117,11 @@ const AnimalView = ({animal, closeFunc}) =>{
             <div className='animal-container'>
                 <div className='animal-data-section'>
                     <img className='animal-img' alt='Your pet' src={`http://localhost:5000/api/animals/showimage/${animal._id}`}></img>
-                    <h1 className='animal-name'>{animal.name}</h1>
+                    <h1 className='animal-name'>{animal.name||"N/A"}</h1>
                     <div className='animal-line'></div>
-                    <div className='animal-desc'>Weight: {animal.weight} kg</div>
-                    <div className='animal-desc'>Age: {3} Years</div>
-                    <div className='animal-desc'>Description: {animal.description}</div>
+                    <div className='animal-desc'>Weight: {animal.weight||"N/A"} kg</div>
+                    <div className='animal-desc'>birthDate: {animal.birthDate||"N/A"}</div>
+                    <div className='animal-desc'>Description: {animal.description||"N/A"}</div>
                 </div>
                 <div className='animal-event-section'>
                     <h1 className='event-title'>Wizyty:</h1>
