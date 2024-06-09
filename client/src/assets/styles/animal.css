@@ -1,10 +1,10 @@
 .animal-container{
     width: 80vw;
     height: 80vh;
-    border: solid #FDFDFD 1px;
-    box-shadow: 0px 20px 10px #DD2C00;
+    border: solid var(--white-border) 1px;
+    box-shadow: 0px 20px 10px var(--primary-red-shadow);
     padding: 30px 20px;
-    background-color: #FFF3E0;
+    background-color: var(--primary-background-color1);
     border-radius: 30px;
     display: flex;
     position: relative;
@@ -16,11 +16,11 @@
     height: 50px;
     aspect-ratio: 1;
     border-radius: 50%;
-    border: 2px solid #E65100;
+    border: 2px solid var(--default-border);
     padding: 5px;
     position: relative;
     right: 0;
-    background-color: #FFF3E0;
+    background-color: var(--primary-background-color1);
     font-size: 1.5em;
     transition: 150ms;
     cursor: pointer;
@@ -45,7 +45,7 @@
 .animal-img{
     border-radius: 50%;
     width: 100%;
-    border: 2px solid #E65100;
+    border: 2px solid var(--default-border);
 }
 
 .animal-name{
@@ -55,14 +55,14 @@
     width: 100%;
     height: 3px;
     border-radius: 3px;
-    background-color: #E65100;
+    background-color: var(--default-border);
 }
 .animal-desc{
     width: 100%;
     font-size: 24px;
 }
 .background{
-    background: linear-gradient(to bottom, #FFA500, #FF4500);
+    background: var(--primary-background-gradient);
     width: 100vw;
     height: 100vh;
     padding: 0;
@@ -82,24 +82,23 @@
     height: 100px;
     border: none;
     border-radius: 15px;
-    background-color: #FFF3E0;
+    background-color: var(--primary-background-color1);
     box-shadow: 0 3px 7px #00000067;
     position: relative;
 }
 .add-button{
     font-size: 2em;
-    color: #FF4500;
+    color: var(--orange-button-color2);
     transition: 200ms;
     cursor: pointer;
 }
 
 .add-button:hover{
-    background-color: #a7a7a7;
+    background-color: var(--primary-background-color2);
 }
 
 .add-button:active{
     color: #FF4500;
-    background-color: #c5c5c5;
 }
 
 .event-editor{
@@ -133,7 +132,7 @@
 }
 
 .confirm-button:hover{
-    color: #E65100;
+    color: var(--orange-background-color);
 }
 
 .event{
@@ -148,5 +147,5 @@
     padding: 0;
 }
 .date{
-    color: #E65100;
+    color: var(--orange-background-color);
 }
