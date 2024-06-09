@@ -5,6 +5,7 @@ const requireAuth = (req, res, next) => {
     if(token){
         jwt.verify(token, 'test secret',(err, decodedToken) => {
             if(err){
+                console.log(err)
                 res.status(403).send('Acces denied');
             }
             else{
@@ -13,6 +14,7 @@ const requireAuth = (req, res, next) => {
         });
     }
     else{
+        console.log(req.cookies)
         res.status(403).send('Acces denied');
     }
     
