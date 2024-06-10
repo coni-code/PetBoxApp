@@ -28,7 +28,7 @@ module.exports.addAnimal = async (req,res,next) => {
     }
     catch(err)
     {
-        console.error(error)
+        console.error(error);
         res.status(500).send('Animal not created!');
     }
 }
@@ -47,14 +47,14 @@ module.exports.showimage = async (req,res,next) => {
 }
 
 module.exports.showAnimalData = async (req,res,next) => {
-    const user = res.locals.user
-    const animalId = req.id
+    const user = res.locals.user;
+    const animalId = req.id;
     try{
-        const animal = await Animal.findOne({id: animalId, owner: user.id});
+        const animal = await Animal.findOne({id: animalId, owner: user.id}).exec();
         res.json(animal);
     }
     catch(err){
-        console.log(err)
+        console.log(err);
         res.status(404).send("Animal not found");
     }
 }

@@ -1,5 +1,5 @@
 const {Router} = require('express');
-const {checkUser} = require('../middlewere/authMiddlewere');
+const {authUser, checkUser} = require('../middlewere/authMiddlewere');
 const {sendAnimalArray, addAnimal, showAnimalData, showimage} = require('../controllers/animalController')
 const {uploadProfile} = require('../multer-config');
 
