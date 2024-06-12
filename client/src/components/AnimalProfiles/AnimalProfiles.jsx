@@ -2,7 +2,9 @@ import React from 'react'
 
 const AnimalProfiles = () => {
   return (
-    <div>AnimalProfiles</div>
+    <div className='animal-profiles'>
+        
+    </div>
   )
 }
 

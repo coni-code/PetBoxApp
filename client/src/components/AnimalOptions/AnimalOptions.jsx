@@ -11,6 +11,10 @@ const AnimalOptions = () => {
       navigate('/animal-form');
   }
 
+  const handleClickChoose = () => {
+    navigate('/animal-profiles');
+}
+
   return (
     <div className='option-container'>
         <h1 className='option-header'>Select next step</h1>
@@ -20,7 +24,7 @@ const AnimalOptions = () => {
               <p className='option-desc'>Add new animal</p>
           </div>
           <div className='div-range'>
-              <AiOutlineCheckCircle size={80} color='#FF6D00' className='option-circle'/>
+              <AiOutlineCheckCircle size={80} color='#FF6D00' className='option-circle' onClick={handleClickChoose}/>
               <span className='option-desc'>Choose animal profile</span>
           </div>
         </div>

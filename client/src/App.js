@@ -15,7 +15,7 @@ function App() {
               <Route path="/" element={<LoginPage/>} />
               <Route path="/animal-form" element={<AnimalConfigPage />} />
               <Route path="/animal-options" element={<AnimalOptionChoose />} />
-              <Route path="/animal-profile" element={<AnimalProfilesPage />} />
+              <Route path="/animal-profiles" element={<AnimalProfilesPage />} />
               <Route path="/home" element={<HomePage />} />
             </Routes>
       </Router>
