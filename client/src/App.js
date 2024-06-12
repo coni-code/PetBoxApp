@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage';
 import './assets/styles/app.css';
 import HomePage from './pages/HomePage';
 import AnimalOptionChoose from './pages/AnimalOptionChoose';
+import AnimalProfilesPage from './pages/AnimalProfilesPage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
               <Route path="/" element={<LoginPage/>} />
               <Route path="/animal-form" element={<AnimalConfigPage />} />
               <Route path="/animal-options" element={<AnimalOptionChoose />} />
+              <Route path="/animal-profile" element={<AnimalProfilesPage />} />
               <Route path="/home" element={<HomePage />} />
             </Routes>
       </Router>
