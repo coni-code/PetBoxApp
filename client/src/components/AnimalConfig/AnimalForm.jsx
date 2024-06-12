@@ -4,6 +4,7 @@ import {useEffect} from 'react';
 import { useRef } from 'react';
 import '../../assets/styles/animalForm.css';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
+import { useNavigate } from 'react-router-dom';
 
 
 const AnimalForm = () => {
@@ -15,6 +16,7 @@ const AnimalForm = () => {
   const [isModalOpen, setIsModalOpen] = useState(true);
   const [animalImage, setAnimalImage] = useState('');
   const inputPhotoRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isModalOpen) {
@@ -87,9 +89,13 @@ const AnimalForm = () => {
       body: formData,
       credentials: 'include'
     })
-      .then((response) => response.json())
-      .then((response) => console.log(response))
-      .catch((err) => console.error(err));
+    .then(res => {
+      if (res.ok) {
+          navigate('/animal-options');
+          return res.json();
+      }
+  })
+  .catch(err => console.error('error:' + err));
   }
 
   return (
