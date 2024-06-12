@@ -22,7 +22,7 @@ export const Login = (props) => {
             if (res.ok) {
                 document.querySelector('.errorAuthLogin').classList.remove('show');
                 document.querySelector('.errorAuthLogin2').classList.remove('show');
-                navigate('/animal-form');
+                navigate('/animal-options');
                 return res.json();
             } else {
                 document.querySelector('.errorAuthLogin').classList.add('show');
