@@ -6,6 +6,7 @@ import './assets/styles/app.css';
 import HomePage from './pages/HomePage';
 import AnimalOptionChoose from './pages/AnimalOptionChoose';
 import AnimalProfilesPage from './pages/AnimalProfilesPage';
+import AnimalView from './components/AnimalView/AnimalView';
 
 function App() {
   return (

@@ -23,9 +23,8 @@ const AnimalProfiles = () => {
       .catch(err => console.error(err));
   }, []);
 
-
-  const handleAnimalClick = (animalData) => {
-    //navigate('/home', { state: { animalData: animalData } });
+  const handleAnimalClick = (animal) => {
+    navigate('/home', { state: { animal } });
   }
 
   return (
