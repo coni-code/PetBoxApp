@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import '../../assets/styles/animal.css'
 // Animal: object z id, oraz danymi CloseFunc: funkcja do zamykania
+
 const AnimalView = ({animal, closeFunc}) =>{
     const [editorState, setEditorState] = useState(false);
     const [events, setEvents] = useState([]);
     const [editorValue, setEditorValue] = useState(['',''])
+    
     const getEvents = () =>{
         let url = `http://localhost:5000/api/event/show/${animal._id}`;
         let options = {
